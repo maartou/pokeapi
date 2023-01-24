@@ -7,7 +7,7 @@ const PokeCard = ({nombre, id, img, extra}) => {
         <h2 className='uppercase font-bold'>{nombre}</h2>
         <p>{`ID:${id}`}</p>
         <div>
-            <Image src={img} alt="" width={200} height={200} />
+            <Image src={img} alt="" className='h-[9rem]'  width={130} height={130} priority />
         </div>
     </article>
   )

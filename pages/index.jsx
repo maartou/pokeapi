@@ -4,8 +4,10 @@ import Head from "next/head";
 
 export default function Home({ pokemon }) {
   const [color, setColor] = React.useState(false);
-  const sprite = pokemon.sprites.other.dream_world.front_default
-
+  // const sprite = pokemon.sprites.other.dream_world.front_default;
+  {
+    console.log(pokemon);
+  }
 
   return (
     <>
@@ -16,37 +18,50 @@ export default function Home({ pokemon }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main
-        className={`transition-colors h-screen ${
+        className={`transition-colors ${
           color ? "bg-black text-white" : "bg-white text-black"
         }`}
       >
         <section>
-          <div className="w-11/12 mx-auto pt-10">
-            <PokeCard
-              nombre={pokemon.name}
-              id={pokemon.id}
-              img={sprite}
-              extra={color ? "border border-white" : ""}
-            />
+          <button
+            onClick={() => setColor(!color)}
+            className={`border border-red-400 p-3 m-3 `}
+          >
+            {color ? "White" : "Dark"}
+          </button>
+
+          <div className="w-11/12 mx-auto grid grid-cols-2 gap-3 place-items-center md:grid-cols-4 lg:w-[60%]">
+            {pokemon.map((poke) => (
+              <div key={poke.name}>
+                <PokeCard
+                  nombre={poke.name}
+                  id={poke.name}
+                  img={poke.image}
+                  extra={color ? "border border-white" : ""}
+                />
+              </div>
+            ))}
           </div>
         </section>
-        <button
-          onClick={() => setColor(!color)}
-          className={`border border-red-400 p-3 absolute top-3 right-3`}
-        >
-          {color ? 'White' : 'Dark'}
-        </button>
       </main>
-      {console.log(pokemon)}
     </>
   );
 }
 
 export async function getStaticProps() {
-  const res = await fetch(`https://pokeapi.co/api/v2/pokemon/magmortar`);
-  const data = await res.json();
+  const res = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=150`);
+  const { results } = await res.json();
+
+  const pokemon = results.map((result, index) => {
+    const paddedIndex = ("" + (index + 1)).slice(-3);
+    const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${paddedIndex}.svg`;
+    return {
+      ...result,
+      image,
+    };
+  });
 
   return {
-    props: { pokemon: data },
+    props: { pokemon },
   };
 }
