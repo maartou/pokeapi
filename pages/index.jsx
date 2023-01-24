@@ -3,11 +3,10 @@ import PokeCard from "@/components/pokecard/PokeCard";
 import Head from "next/head";
 
 export default function Home({ pokemon }) {
-  const [color, setColor] = React.useState(false);
-  // const sprite = pokemon.sprites.other.dream_world.front_default;
   {
     console.log(pokemon);
   }
+  const [counter, setCounter] = React.useState(1);
 
   return (
     <>
@@ -17,28 +16,12 @@ export default function Home({ pokemon }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main
-        className={`transition-colors ${
-          color ? "bg-black text-white" : "bg-white text-black"
-        }`}
-      >
+      <main>
         <section>
-          <button
-            onClick={() => setColor(!color)}
-            className={`border border-red-400 p-3 m-3 `}
-          >
-            {color ? "White" : "Dark"}
-          </button>
-
-          <div className="w-11/12 mx-auto grid grid-cols-2 gap-3 place-items-center md:grid-cols-4 lg:w-[60%]">
-            {pokemon.map((poke) => (
-              <div key={poke.name}>
-                <PokeCard
-                  nombre={poke.name}
-                  id={poke.name}
-                  img={poke.image}
-                  extra={color ? "border border-white" : ""}
-                />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
+            {pokemon.map((poke, index) => (
+              <div key={index}>
+                <PokeCard nombre={poke.name} img={poke.image} />
               </div>
             ))}
           </div>

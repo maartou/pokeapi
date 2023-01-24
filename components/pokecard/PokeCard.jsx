@@ -1,14 +1,14 @@
 import React from 'react'
 import Image from 'next/image'
 
-const PokeCard = ({nombre, id, img, extra}) => {
+const PokeCard = ({nombre, img, extra, id}) => {
   return (
-    <article className={`shadow-lg w-max rounded-xl p-4 ${extra}`}>
-        <h2 className='uppercase font-bold'>{nombre}</h2>
-        <p>{`ID:${id}`}</p>
-        <div>
-            <Image src={img} alt="" className='h-[9rem]'  width={130} height={130} priority />
+    <article className={`relative shadow-lg p-4 ${extra}`}>
+        <h2 className='uppercase font-bold text-xl'>{nombre}</h2>
+        <div className='flex justify-end'>
+            <Image src={img} alt="" className='h-[10rem]' width={150} height={150} priority />
         </div>
+        <p className='absolute top-[50%] left-[40%] -translate-x-[40%] -translate-y-[50%] font-bold text-[9rem] opacity-[.3] -z-10'>{id}</p>
     </article>
   )
 }
