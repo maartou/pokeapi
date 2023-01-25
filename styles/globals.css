@@ -3,5 +3,17 @@
 @tailwind utilities;
 
 body {
-    font-family: 'Nova Square', cursive;
+  font-family: "Nova Square", cursive;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.glass {
+  background: rgba(0, 0, 0, 0.32);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.1px);
+  -webkit-backdrop-filter: blur(4.1px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
