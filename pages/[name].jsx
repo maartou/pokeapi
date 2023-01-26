@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 
 export async function getStaticPaths() {
-  const res = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=649`);
+  const res = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=150`);
   const data = await res.json();
 
   const paths = data.results.map((pokemon) => {
