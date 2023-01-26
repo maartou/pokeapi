@@ -1,9 +1,10 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const PokeCard = ({ pokemon }) => {
   return (
-    <article className={`border border-white p-4 transition-colors hover:bg-white hover:text-black hover:border-none`}>
+    <Link href={`/${pokemon.name}`} className={`border border-white p-4 transition-colors hover:bg-white hover:text-black hover:border-none`}>
       <h2 className="uppercase font-bold text-xl">{pokemon.name}</h2>
       <h3>{`ID: ${pokemon.id}`}</h3>
       <div className="flex justify-end">
@@ -15,7 +16,7 @@ const PokeCard = ({ pokemon }) => {
           height='150'
         />
       </div>
-    </article>
+    </Link>
   );
 };
 
