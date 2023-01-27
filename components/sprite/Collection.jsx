@@ -26,47 +26,59 @@ const Collection = ({ pokemon }) => {
   const spriteg7 = pokemon.sprites.versions[g7][sunmoon].front_default;
 
   return (
-    <div className="mt-5 grid grid-cols-2 gap-3 w-11/12 mx-auto md:grid-cols-3 lg:grid-cols-4">
-      <PokeSprite pokemon={pokemon} sprite={sprite1} desc="Front - clásico" />
-      <PokeSprite pokemon={pokemon} sprite={sprite2} desc="Back - clásico" />
-      <PokeSprite
-        pokemon={pokemon}
-        sprite={sprite1shiny}
-        desc="Front - shiny"
-      />
-      <PokeSprite pokemon={pokemon} sprite={sprite2shiny} desc="Back - shiny" />
-      <PokeSprite pokemon={pokemon} sprite={spritehome} desc="modelo 3D" />
-      <PokeSprite pokemon={pokemon} sprite={spriteart} desc="Artwork oficial" />
-      <PokeSprite
-        pokemon={pokemon}
-        sprite={spriteg1}
-        desc="Primera generación"
-      />
-      <PokeSprite
-        pokemon={pokemon}
-        sprite={spriteg2}
-        desc="Segunda generación"
-      />
-      <PokeSprite
-        pokemon={pokemon}
-        sprite={spriteg3}
-        desc="Tercera generación"
-      />
-      <PokeSprite
-        pokemon={pokemon}
-        sprite={spriteg4}
-        desc="Cuarta generación"
-      />
-      <PokeSprite
-        pokemon={pokemon}
-        sprite={spriteg5}
-        desc="Quinta generación"
-      />
-      <PokeSprite
-        pokemon={pokemon}
-        sprite={spriteg7}
-        desc="Séptima generación"
-      />
+    <div className="w-11/12 mx-auto 2xl:w-[70%]">
+      <h2 className="text-3xl">- Sprites oficiales</h2>
+
+      <div className="mt-5 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
+        <PokeSprite pokemon={pokemon} sprite={sprite1} desc="Front - clásico" />
+        <PokeSprite pokemon={pokemon} sprite={sprite2} desc="Back - clásico" />
+        <PokeSprite
+          pokemon={pokemon}
+          sprite={sprite1shiny}
+          desc="Front - shiny"
+        />
+        <PokeSprite
+          pokemon={pokemon}
+          sprite={sprite2shiny}
+          desc="Back - shiny"
+        />
+        <PokeSprite pokemon={pokemon} sprite={spritehome} desc="modelo 3D" />
+        <PokeSprite
+          pokemon={pokemon}
+          sprite={spriteart}
+          desc="Artwork oficial"
+        />
+        <PokeSprite
+          pokemon={pokemon}
+          sprite={spriteg1}
+          desc="Primera generación"
+        />
+        <PokeSprite
+          pokemon={pokemon}
+          sprite={spriteg2}
+          desc="Segunda generación"
+        />
+        <PokeSprite
+          pokemon={pokemon}
+          sprite={spriteg3}
+          desc="Tercera generación"
+        />
+        <PokeSprite
+          pokemon={pokemon}
+          sprite={spriteg4}
+          desc="Cuarta generación"
+        />
+        <PokeSprite
+          pokemon={pokemon}
+          sprite={spriteg5}
+          desc="Quinta generación"
+        />
+        <PokeSprite
+          pokemon={pokemon}
+          sprite={spriteg7}
+          desc="Séptima generación"
+        />
+      </div>
     </div>
   );
 };
