@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import Image from "next/image";
 import Tipo from "@/components/pokecard/Tipo";
 import Collection from "@/components/sprite/Collection";
@@ -6,7 +7,7 @@ import Movimientos from "@/components/movimientos/Movimientos";
 import Stats from "@/components/stats/Stats";
 
 export async function getStaticPaths() {
-  const res = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=150`);
+  const res = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=649`);
   const data = await res.json();
 
   const paths = data.results.map((pokemon) => {
@@ -36,6 +37,9 @@ const Name = ({ pokemon }) => {
 
   return (
     <>
+    <Head>
+      <title>{`${pokemon.name} - Pokémarto`}</title>
+    </Head>
       <main className="bg-black text-white flex flex-col gap-[4rem]">
         {/* Nombre y foto principal  */}
         <section className="pt-[4rem]">
