@@ -10,7 +10,7 @@ const PokeCard = ({ pokemon }) => {
       <h3>{`ID: ${pokemon.id}`}</h3>
       <div className="flex justify-end">
         <Image
-          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${pokemon.id}.gif`}
+          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`}
           alt={pokemon.id}
           className="h-[10rem] w-[10rem]"
           width='150'

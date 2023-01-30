@@ -37,11 +37,6 @@ const Collection = ({ pokemon }) => {
           sprite={spriteart}
           desc="Artwork oficial"
         />
-        <PokeSprite
-          pokemon={pokemon}
-          sprite={spriteg5}
-          desc="Quinta generación"
-        />
       </div>
     </div>
   );
