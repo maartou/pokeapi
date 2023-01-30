@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import PokeCard from "@/components/pokecard/PokeCard";
 import Head from "next/head";
 
 export default function Home({ pokemon }) {
+  const [search, setSearch] = useState("");
+  const searcher = (e) => {
+    setSearch(e.target.value);
+  };
+
+  let results = [];
+
+  if (!search) {
+    results = pokemon;
+  } else {
+    results = pokemon.filter((dato) =>
+      dato.name.toLowerCase().includes(search.toLocaleLowerCase())
+    );
+  }
+
   return (
     <>
       <Head>
@@ -11,8 +26,7 @@ export default function Home({ pokemon }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="bg-black text-white">
-
+      <main className="text-white">
         {/* Título y searchbar  */}
         <div className="py-5 sticky top-0 left-0 w-full glass">
           <h1 className="uppercase text-center text-3xl mb-2">pokémarto</h1>
@@ -20,9 +34,9 @@ export default function Home({ pokemon }) {
             <input
               className="bg-black border p-3 w-full"
               placeholder="Buscar pokémon..."
-              type="search"
-              name=""
-              id=""
+              type="text"
+              value={search}
+              onChange={searcher}
             />
           </div>
         </div>
@@ -30,7 +44,7 @@ export default function Home({ pokemon }) {
         {/* Pokedex  */}
         <section>
           <div className="w-11/12 mx-auto grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
-            {pokemon.map((poke) => (
+            {results.map((poke) => (
               <PokeCard key={poke.id} pokemon={poke} />
             ))}
           </div>
