@@ -15,6 +15,7 @@ const PokeCard = ({ pokemon }) => {
           className="h-[10rem] w-[10rem]"
           width='150'
           height='150'
+          unoptimized
         />
       </div>
     </Link>
